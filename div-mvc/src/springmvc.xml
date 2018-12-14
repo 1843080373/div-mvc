@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <!-- handler,处理器，需要开发实现 -->
+    <scanner package="com.mvc.test"/>
+    <bean name="/demo.do" class="com.mvc.test.DemoController"/>
+    <bean name="/hello.do" class="com.mvc.test.HelloController"/>
+</beans>
