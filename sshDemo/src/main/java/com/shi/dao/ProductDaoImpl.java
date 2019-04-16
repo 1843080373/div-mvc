@@ -20,7 +20,7 @@ public class ProductDaoImpl implements ProductDao {
     public ProductDaoImpl(SessionFactory sessionFactory) {
         this.template = new HibernateTemplate(sessionFactory);
     }
-    @Override
+
     public void saveProduct(Product product) {
         template.save(product);
     }
