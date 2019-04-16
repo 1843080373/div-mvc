@@ -1,4 +1,6 @@
 package com.shi.dao;
+import java.util.List;
+
 import com.shi.entity.Product;
 
 /**
@@ -7,4 +9,7 @@ import com.shi.entity.Product;
  */
 public interface ProductDao {
     void saveProduct(Product product);
+    void updateProduct(Product product);
+    void deleteProduct(Product product);
+    List<Product> listProduct(Product product);
 }

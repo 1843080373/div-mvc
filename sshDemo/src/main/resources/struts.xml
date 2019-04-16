@@ -18,8 +18,10 @@
         strict-method-invocation="false">
         <!-- 保存商品 -->
         <action name="product_*" class="productAction" method="{1}Product">
-            <result>WEB-INF/view/index.jsp</result>
-            <result name="input">WEB-INF/view/index.jsp</result>
+            <result name="add">WEB-INF/view/index.jsp</result>
+            <result name="input">WEB-INF/view/list.jsp</result>
+             <result name="list">WEB-INF/view/list.jsp</result>
+              <result name="update">WEB-INF/view/update.jsp</result>
         </action>
     </package>
 
