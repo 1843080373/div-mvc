@@ -1,0 +1,24 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "demo.springboot.config.BookComponent",
+      "name": "demo.book",
+      "type": "demo.springboot.config.BookComponent"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "demo.springboot.config.BookComponent",
+      "name": "demo.book.name",
+      "description": "书名",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "demo.springboot.config.BookComponent",
+      "name": "demo.book.writer",
+      "description": "作者",
+      "type": "java.lang.String"
+    }
+  ]
+}

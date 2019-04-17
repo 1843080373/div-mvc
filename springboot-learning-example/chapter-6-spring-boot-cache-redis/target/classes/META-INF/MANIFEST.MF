@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: chapter-6-spring-boot-cache-redis
+Implementation-Version: 1.0
+Built-By: huangjian
+Implementation-Vendor-Id: demo.springboot
+Build-Jdk: 1.8.0_131
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/chapter-6-spring-boot-cache-redis
+Created-By: Maven Integration for Eclipse
+

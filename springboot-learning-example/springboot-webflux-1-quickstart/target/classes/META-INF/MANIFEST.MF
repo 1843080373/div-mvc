@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: springboot-webflux-1-quickstart :: Spring Boot W
+ ebFlux 快速入门
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: huangjian
+Implementation-Vendor-Id: springboot
+Build-Jdk: 1.8.0_131
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/springboot-webflux-1-quickstart
+Created-By: Maven Integration for Eclipse
+

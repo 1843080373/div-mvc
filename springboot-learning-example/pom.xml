@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>springboot</groupId>
+  <artifactId>springboot-learning-example</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>springboot-learning-example</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+  </dependencies>
+  <modules>
+  	<module>chapter-1-spring-boot-quickstart</module>
+  	<module>chapter-2-spring-boot-config</module>
+    <module>chapter-3-spring-boot-web</module>
+    <module>chapter-4-spring-boot-validating-form-input</module>
+    <module>chapter-4-spring-boot-web-thymeleaf</module>
+    <module>chapter-5-spring-boot-data-jpa</module>
+    <module>chapter-5-spring-boot-paging-sorting</module>
+    <module>chapter-6-spring-boot-cache-redis</module>
+    <module>spring-data-elasticsearch-crud</module>
+    <module>spring-data-elasticsearch-query</module>
+    <module>springboot-configuration</module>
+    <module>springboot-dubbo-client</module>
+    <module>springboot-dubbo-server</module>
+    <module>springboot-freemarker</module>
+    <module>springboot-mybatis-annotation</module>
+    <module>springboot-mybatis-redis-annotation</module>
+    <module>springboot-mybatis-redis</module>
+    <module>springboot-validation-over-json</module>
+    <module>springboot-webflux-1-quickstart</module>
+    <module>springboot-webflux-2-restful</module>
+    <module>springboot-webflux-3-mongodb</module>
+    <module>springboot-webflux-4-thymeleaf</module>
+    <module>springboot-webflux-8-websocket</module>
+    <module>springboot-webflux-9-test</module>
+    <module>springboot-motan-client</module>
+    <module>springboot-motan-server</module>
+  </modules>
+</project>

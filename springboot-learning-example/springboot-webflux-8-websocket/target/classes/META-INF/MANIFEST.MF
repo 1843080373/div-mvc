@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: springboot-webflux-8-websocket :: Spring Boot We
+ bFlux 中 WebSocket 实现通信
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: huangjian
+Implementation-Vendor-Id: springboot
+Build-Jdk: 1.8.0_131
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/springboot-webflux-8-websocket
+Created-By: Maven Integration for Eclipse
+
