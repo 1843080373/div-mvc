@@ -1,0 +1,7 @@
+server:
+  port: 8080
+spring:
+  data:
+    elasticsearch:
+      cluster-name: my-application #默认即为 elasticsearch
+      cluster-nodes: 172.18.58.57:9300
