@@ -43,5 +43,8 @@
     <module>springboot-webflux-9-test</module>
     <module>springboot-motan-client</module>
     <module>springboot-motan-server</module>
+    <module>springboot-dubbo-user-server</module>
+    <module>springboot-dubbo-api</module>
+    <module>springboot-motan-api</module>
   </modules>
 </project>
