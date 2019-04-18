@@ -1,0 +1,2 @@
+2019-04-18 17:46:22,652 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2019-04-18 17:46:38,136 INFO (StartupInfoLogger.java:59)- Started ServiceRibbonApplication in 34.364 seconds (JVM running for 48.62)
