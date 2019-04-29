@@ -48,15 +48,26 @@ public class DisparchServlet extends HttpServlet {
 	private static Map<String, ControllerBean> webBeans = new HashMap<String, ControllerBean>();
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = req.getRequestURI();
-		String contextPath = req.getServletContext().getContextPath();
+		String contextPath = req.getContextPath();
 		String realPath = path.substring(contextPath.length());
 		System.out.println("realPath=" + realPath);
-		if (!webBeans.containsKey(realPath)) {
+		String reqMethod=req.getMethod();
+		System.out.println("reqMethod=" + reqMethod);
+		if (!handleMetod(webBeans,reqMethod,realPath)) {
 			resp.sendError(404, "您要查找的资源不存在");
 			return;
 		}
+		handleRequest(req, resp, realPath);
+	}
+
+	private void handleRequest(HttpServletRequest req, HttpServletResponse resp, String realPath) {
 		ControllerBean controllerBean = webBeans.get(realPath);
 		Map<String, Class<?>> paMap = controllerBean.getRequestParams();
 		LinkedList<Object> params = new LinkedList<Object>();
@@ -75,14 +86,15 @@ public class DisparchServlet extends HttpServlet {
 			} else {
 				o = m.invoke(beans.get(controllerBean.getBeanName()));
 			}
-			System.out.println(o);
+			System.out.println(JSONObject.toJSONString(o));
 			if (controllerBean.getHasResponseBody()) {
 				PrintWriter out = resp.getWriter();
-				if (isBaseType(o)) {
-					out.println(new String(o.toString().getBytes("UTF8")));
+				if (o!=null&&isBaseType(o)) {
+					out.println(o.toString());
 				} else {
 					out.println(JSONObject.toJSONString(o));
 				}
+				out.flush();
 			} else {
 				if (o instanceof ModelAndView) {
 					ModelAndView modelAndView = (ModelAndView) o;
@@ -92,12 +104,12 @@ public class DisparchServlet extends HttpServlet {
 							req.setAttribute(object.getKey(), object.getValue());
 						}
 					}
-					req.getRequestDispatcher(modelAndView.getView()).forward(req, resp);
+					System.out.println("-----------------------"+modelAndView.getView());
+					req.getRequestDispatcher("/"+modelAndView.getView()).forward(req, resp);
 				} else {
 					req.getRequestDispatcher(o.toString()).forward(req, resp);
 				}
 			}
-			return;
 		} catch (InvocationTargetException e) {
 			System.out.println("此处接收被调用方法内部未被捕获的异常");
 			Throwable t = e.getTargetException();// 获取目标异常
@@ -106,6 +118,19 @@ public class DisparchServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	private boolean handleMetod(Map<String, ControllerBean> webBeans, String reqMethod,String realPath) {
+		if(!webBeans.containsKey(realPath)) {
+			return false;
+		}
+		ControllerBean controllerBean=webBeans.get(realPath);
+		for (int i = 0; i < controllerBean.getReqMethods().length; i++) {
+			if(reqMethod.equals(controllerBean.getReqMethods()[i])) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * 判断object是否为基本类型
 	 * 

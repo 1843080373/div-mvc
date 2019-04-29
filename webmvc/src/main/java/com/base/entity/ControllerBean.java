@@ -39,6 +39,13 @@ public class ControllerBean implements Serializable{
 	public RequestMethod[] getRequestMethods() {
 		return requestMethods;
 	}
+	public String[] getReqMethods() {
+		String[] ms=new String[requestMethods.length];
+		for (int i = 0; i < requestMethods.length; i++) {
+			ms[i] = requestMethods[i].getCode();
+		}
+		return ms;
+	}
 
 	public void setRequestMethods(RequestMethod[] requestMethods) {
 		this.requestMethods = requestMethods;

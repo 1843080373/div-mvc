@@ -16,15 +16,29 @@ public class TestController {
 	@Autowired
 	private HelloService helloService;
 
+	@RequestMapping(value = "/hello.spring", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView hello() {
+		return new ModelAndView("hello.jsp");
+	}
+
+	
 	@ResponseBody
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/user.spring", method = RequestMethod.GET)
+	public User user(@RequestParam("name") String name) {
+		return helloService.save(new User(name));
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/index.spring", method = RequestMethod.GET)
 	public String index(@RequestParam("name") String name) {
 		helloService.save(name);
 		return name;
 	}
-
-	@RequestMapping(value = "/hello", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView hello() {
-		return new ModelAndView("index");
+	
+	@ResponseBody
+	@RequestMapping(value = "/good.spring", method = RequestMethod.GET)
+	public String good() {
+		return "good";
 	}
+
 }
